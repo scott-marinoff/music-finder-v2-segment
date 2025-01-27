@@ -15,6 +15,7 @@ function signupPageViewed() {
 	}
 
 	mixpanel.track("Viewed Signup Page");
+	analytics.track("Viewed Signup Page");
 }
 
 // This function executes after a user successfully signs up
@@ -113,6 +114,10 @@ function songPlayed(song) {
 		"Artist" : song.artist,
 		"Genre" : song.genre,
 		"Duration" : song.duration
+	});
+	analytics.track("Played Song", {
+	  "Title": song.title,
+	  "Artist" : song.artist
 	});
 }
 
