@@ -123,9 +123,7 @@ function songPlayed(song) {
 
 	analytics.identify({
 	  traits: {
-	    '$increment': {
-	      'songs_played': 1
-	    }
+	    '$add_to_songs_played': 1
 	  }
 	});
 }
