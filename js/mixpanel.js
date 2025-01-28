@@ -115,9 +115,19 @@ function songPlayed(song) {
 		"Genre" : song.genre,
 		"Duration" : song.duration
 	});
+
 	analytics.track("Played Song", {
 	  "Title": song.title,
 	  "Artist" : song.artist
+	});
+
+	analytics.identify({
+	  userId: mixpanel.get_distinctId(),
+	  traits: {
+	    '$increment': {
+	      'songs_played': 1
+	    }
+	  }
 	});
 }
 
