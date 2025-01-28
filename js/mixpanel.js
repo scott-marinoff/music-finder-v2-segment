@@ -79,8 +79,6 @@ async function logout() {
 // e.g. calling song.title will return the song's title
 function songPlayed(song) {
 
-	let user_id = mixpanel.get_distinct_id();
-
 	// Set a 'Songs Played' count Super Property
 	let playedProperty = "Songs Played (Session)";
 	let songsPlayed = mixpanel.get_property([playedProperty]);
@@ -124,7 +122,6 @@ function songPlayed(song) {
 	});
 
 	analytics.identify({
-	  userId: user_id,
 	  traits: {
 	    '$increment': {
 	      'songs_played': 1
